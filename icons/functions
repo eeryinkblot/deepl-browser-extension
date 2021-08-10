@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+extmagick(){
+  magick convert $1.svg -resize $2x$2 -gravity center -background transparent -transparent white -extent $2x$2 $1$2.png
+}
+
+createExtensionIcons(){
+  sizes=('16' '24' '32' '48' '128')
+  for size in $sizes
+  do
+    extmagick $1 $size
+  done
+}
+
+createExtensionIcons icon

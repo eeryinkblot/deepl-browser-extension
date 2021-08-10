@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "DeepL Translator",
+  "version": "1.0",
+  "description": "Select a text and translate it with the DeepL Translator. You need to provide an API Key to use this extension.",
+  "author": "eeryinkblot",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_action": {
+    "default_title": "Translate with DeepL",
+    "browser_action": {
+      "default_title": "DeepL Translator",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "24": "icons/icon24.png",
+        "32": "icons/icon32.png"
+      }
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "permissions": [
+    "contextMenus",
+    "https://api-free.deepl.com/v2/translate"
+  ]
+}
